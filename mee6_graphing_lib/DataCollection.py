@@ -8,10 +8,10 @@ from mee6_py_api import API
 
 class DataCollection(object):
     def __init__(self):
-        self.mee6API = API(377946908783673344)
-        self.time_format_str = "%d-%B-%Y %H:%M:%S"
+        self.__mee6API = API(377946908783673344)
+        self.__time_format_str = "%d-%B-%Y %H:%M:%S"
 
-    def plotter_1(self):
+    def __plotter_1(self):
 
         with open("db.json", "r") as fo:
             db = json.loads(fo.read())
@@ -29,7 +29,7 @@ class DataCollection(object):
                 e = keys[index_to_get]
 
                 dates = [
-                    (datetime.datetime.strptime(i, self.time_format_str)).strftime(
+                    (datetime.datetime.strptime(i, self.__time_format_str)).strftime(
                         "%-d-%b-%-y"
                     )
                     for i in db[e]["xp_data"].keys()
@@ -57,7 +57,7 @@ class DataCollection(object):
             db = json.load(fo)
 
         for i in range(100):
-            tom = asyncio.run(self.API_fetch(i))
+            tom = asyncio.run(self.__API_fetch(i))
 
             if xp_trigger:
                 break
@@ -71,7 +71,7 @@ class DataCollection(object):
                     asd = db[l["id"]]
                     temp_xp_data = asd["xp_data"]
                     temp_xp_data.update(
-                        {time.strftime(self.time_format_str, time.gmtime()): l["xp"]}
+                        {time.strftime(self.__time_format_str, time.gmtime()): l["xp"]}
                     )
 
                     # print(temp_xp_data)
@@ -89,7 +89,7 @@ class DataCollection(object):
                                 "name": l["username"],
                                 "xp_data": {
                                     time.strftime(
-                                        self.time_format_str, time.gmtime()
+                                        self.__time_format_str, time.gmtime()
                                     ): l["xp"]
                                 },
                             }
@@ -103,7 +103,7 @@ class DataCollection(object):
         with open("db.json", "w+") as fo:
             json.dump(db, fo, indent=2)
 
-        self.plotter_1()
+        self.__plotter_1()
 
         # print(details)
 
@@ -114,5 +114,5 @@ class DataCollection(object):
 
         return
 
-    async def API_fetch(self, index):
-        return await self.mee6API.levels.get_leaderboard_page(index)
+    async def __API_fetch(self, index):
+        return await self.__mee6API.levels.get_leaderboard_page(index)
