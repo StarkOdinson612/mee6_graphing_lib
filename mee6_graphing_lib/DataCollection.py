@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from mee6_py_api import API
 
 
-class DataCollection:
+class DataCollection(object):
     def __init__(self):
         self.mee6API = API(377946908783673344)
         self.time_format_str = "%d-%B-%Y %H:%M:%S"
