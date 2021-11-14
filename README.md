@@ -1,0 +1,2 @@
+## Introduction
+Hello! This library is intended to be used to track user progress in the MEE6 Discord bot. Most of the important work has already been done for you, so all you need to do is call `get_details()` and everything will be done for you
