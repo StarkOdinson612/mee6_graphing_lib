@@ -35,7 +35,8 @@ class DataCollection(object):
                     for i in db[e]["xp_data"].keys()
                 ]
                 # dates = [i for i in db[e]['xp_data'].keys()]
-                plt.plot(dates, db[e]["xp_data"].values(), label=db[e]["name"])
+                user_name = db[e]["name"].decode("utf-8", "ignore").encode("utf-8")
+                plt.plot(dates, db[e]["xp_data"].values(), label=user_name)
 
             plt.grid()
             plt.xlabel("Dates")
