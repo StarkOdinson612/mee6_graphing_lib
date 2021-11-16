@@ -4,6 +4,7 @@ import json
 import datetime
 import matplotlib.pyplot as plt
 from mee6_py_api import API
+import re
 
 
 class DataCollection(object):
@@ -35,7 +36,11 @@ class DataCollection(object):
                     for i in db[e]["xp_data"].keys()
                 ]
                 # dates = [i for i in db[e]['xp_data'].keys()]
-                user_name = db[e]["name"].decode("utf-8", "ignore").encode("utf-8")
+                user_name = re.sub(
+                    "([A-Za-z1-9!@#$%^&*()_+-={}[\]|\~`:;<>?,./ ])\w+",
+                    "",
+                    db[e]["name"],
+                )
                 plt.plot(dates, db[e]["xp_data"].values(), label=user_name)
 
             plt.grid()
