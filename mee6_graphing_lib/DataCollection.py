@@ -37,7 +37,7 @@ class DataCollection(object):
                 ]
                 # dates = [i for i in db[e]['xp_data'].keys()]
                 user_name = re.sub(
-                    "([A-Za-z1-9!@#$%^&*()_+-={}[\]|\~`:;<>?,./ ])\w+",
+                    "([A-Za-z1-9!@#$%^&*()_+-={}[\]|\\~`:;<>?,./ ])\w+",
                     "",
                     db[e]["name"],
                 )
