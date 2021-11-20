@@ -9,7 +9,7 @@ setup(
     author="Stark Odinson",  # Type in your name
     author_email="darkknightishaan@gmail.com",  #  # Type in your E-Mail
     url="https://github.com/StarkOdinson612/mee6_graphing_lib",  # Provide either the link to your github or to your website
-    download_url="https://github.com/StarkOdinson612/mee6_graphing_lib/archive/refs/tags/v0.4.3.tar.gz",  # I explain this later on
+    download_url="https://github.com/StarkOdinson612/mee6_graphing_lib/archive/refs/tags/v0.5.tar.gz",  # I explain this later on
     keywords=[
         "MEE6",
         "Graphing",

@@ -66,7 +66,12 @@ class DataCollection(object):
         xp_uid = {}
 
         x = 0
+
         date_tmp = list(list(db.values())[0]["xp_data"].keys())
+
+        if len(date_tmp) < 2:
+            return
+
         d2 = (
             datetime.datetime.strptime(date_tmp[-1], self.__time_format_str)
         ).strftime("%-d-%b-%-y")
