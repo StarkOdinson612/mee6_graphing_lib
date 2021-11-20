@@ -59,7 +59,7 @@ class DataCollection(object):
             plt.savefig(f"static/plot{z + 1}.png", bbox_inches="tight", dpi=200)
             plt.close()
 
-    def plotter_2(self):
+    def __plotter_2(self):
         with open("db.json", "r") as fo:
             db = json.load(fo)
 
@@ -179,6 +179,7 @@ class DataCollection(object):
             json.dump(db, fo, indent=2)
 
         self.__plotter_1()
+        self.__plotter_2()
 
         # print(details)
 
