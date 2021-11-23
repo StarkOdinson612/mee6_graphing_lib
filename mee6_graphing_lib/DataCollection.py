@@ -125,7 +125,7 @@ class DataCollection(object):
         plt.legend(loc="best", bbox_to_anchor=(1, 1))
         # plt.show()
         # plt.figure(figsize=(8,8));
-        plt.savefig(f"static/top_{d1}_to_{d2}.png", bbox_inches="tight", dpi=200)
+        plt.savefig(f"static/top10.png", bbox_inches="tight", dpi=200)
         plt.close()
 
     def get_details(self):
